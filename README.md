@@ -1,2 +1,2 @@
-# ximao_market
-make a mobile's project of vueJs
+# xiaomi_market
+### 参照官网下载vue-cli@3，并创建项目主要骨架
