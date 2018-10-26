@@ -9,10 +9,16 @@
 </template>
 
 <script>
+import { index_data } from './../../server/index.js';
 export default {
   name: 'index',
   components: { 
-  }
+  },
+  async mounted() {
+    const data = await index_data({});
+    console.log('data');
+    console.log(data);
+  },
 }
 </script>
 <style lang="less" scoped>
