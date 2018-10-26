@@ -1,4 +1,5 @@
 # xiaomi_market
+## 小米商城 移动端 仿版
 #### 1、参照官网下载vue-cli@3，并创建项目主要骨架
 ```javascript
 npm install -g @vue/cli
@@ -14,10 +15,10 @@ npm run serve //开启本地项目
 （1）在App.vue 加入reset.css文件内容；<br>
 （2）/public/index.html中引入字体图标库。
 #### 4、配置代理处理跨域
-（1）在根目录增加文件：vue.config.js
+（1）在根目录增加文件：vue.config.js<br>
 （2）添加相应代码，可参考[官方文档](https://cli.vuejs.org/zh/config/#devserver)
 #### 5、封装接口请求函数
-（1）添加axios依赖；
+（1）添加axios依赖；<br>
 （2）在根目录添加文件夹server/；<br>
 （3）在server/文件内添加api.js、index.js；<br>
 （4）api.js依赖axios封装请求和相应的拦截器，并对GET、POST请求进行进一步封装返回promise；<br>
