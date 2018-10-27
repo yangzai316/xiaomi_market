@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <router-view/>
   </div>
 </template>
@@ -22,7 +22,7 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed, 
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+time, mark, audio, video ,input{
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -37,6 +37,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	background-color: #fff;
 }
 ol, ul {
 	list-style: none;
@@ -52,5 +53,12 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+.app{
+    max-width: 540px;
+	margin: 0 auto;
+	background-color: #f5f5f5;
+	min-width: 320px;
+	overflow-x: auto;
 }
 </style>

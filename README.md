@@ -14,7 +14,16 @@ npm run serve //开启本地项目
 ```
 #### 2、引入rem布局的必要文件
 （1）增加flexible.js于/public/js/位置下，/public/index.html中引入该文件；<br>
-（2）配置编译器的自动转换功能，（VScode可使用cssrem插件）。
+（2）配置编译器的自动转换功能，（VScode可使用cssrem插件）;
+（3）添加代码，控制自适应的返回在320px--540px之间。
+```javascript
+if (width / dpr > 540) {
+    width = 540 * dpr;
+}
+if (width / dpr < 320) {
+    width = 320 * dpr;
+}
+```
 #### 3、引入reset.css+字体图标库
 （1）在App.vue 加入reset.css文件内容；<br>
 （2）/public/index.html中引入字体图标库。
@@ -55,5 +64,13 @@ if(env=='production'){
 };
 ```
 根据不同的环境，引入对应的config配置值。
-#### 7、添加插件miut-ui.js
-安装和调用 Vue CLI 插件,可使用vue add xxxx;
+#### 7、添加插件miut-ui(UI框架)
+安装和调用 Vue CLI 插件,可使用vue add xxxx;<br>
+其他框架依旧使用npm install xxx;<br>
+这里可以参考[mint-ui官网](https://mint-ui.github.io/#!/zh-cn)
+在main.js文件添加如下代码：
+```javascript
+import Mint from 'mint-ui';
+import 'mint-ui/lib/style.css';
+Vue.use(Mint);
+```
