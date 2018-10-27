@@ -3,6 +3,7 @@
  */
 import axios from 'axios';
 import QS from 'qs';
+import { Toast } from 'mint-ui';
 
 // 请求超时时间
 axios.defaults.timeout = 10000;
@@ -22,17 +23,11 @@ axios.interceptors.request.use(
 
 // 响应拦截器
 axios.interceptors.response.use(    
-    response => {        
-        if (response.status === 200) {            
-            return Promise.resolve(response);        
-        } else {            
-            return Promise.reject(response);        
-        }    
+    response => {     
+        return Promise.resolve(response); 
     },
-    // 服务器状态码不是200的情况    
     error => {        
-        if (error.response.status) {            
-            console.error('error.response.status');           
+        if (error.response.status) {             
             return Promise.reject(error.response);        
         }       
     }
@@ -50,7 +45,8 @@ export function get(url, params){
         .then(res => {         
             resolve(res.data);        
         })        
-        .catch(err => {            
+        .catch(err => {              
+            Toast('响应异常');       
             reject(err.data)        
         })    
     });
@@ -67,6 +63,7 @@ export function post(url, params) {
             resolve(res.data);        
         })        
         .catch(err => {            
+            Toast('响应异常');           
             reject(err.data)        
         })    
     });
