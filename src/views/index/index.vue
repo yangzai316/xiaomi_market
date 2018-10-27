@@ -1,9 +1,9 @@
 <template>
   <div>
       <nav>
-        <section></section>
+        <section class="logo"></section>
         <section class="search"></section>
-        <section><i class="iconfont icon-gerenzhongxin"></i></section>
+        <section class=""><i class="iconfont icon-gerenzhongxin"></i></section>
       </nav>  
       <ul>
         <li v-for="(item,index) in tabs" :key="index">{{item.name}}</li>
@@ -32,6 +32,7 @@ export default {
 <style lang="less" scoped>
 nav{
   height: .666667rem;
+  width:100%;
 }
 </style>
 
