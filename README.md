@@ -14,7 +14,7 @@ npm run serve //开启本地项目
 ```
 #### 2、引入rem布局的必要文件
 （1）增加flexible.js于/public/js/位置下，/public/index.html中引入该文件；<br>
-（2）配置编译器的自动转换功能，（VScode可使用cssrem插件）;
+（2）配置编译器的自动转换功能，（VScode可使用cssrem插件）;<br>
 （3）添加代码，控制自适应的返回在320px--540px之间。
 ```javascript
 if (width / dpr > 540) {
@@ -24,9 +24,9 @@ if (width / dpr < 320) {
     width = 320 * dpr;
 }
 ```
-#### 3、引入reset.css+字体图标库
+#### 3、引入reset.css、字体图标库
 （1）在App.vue 加入reset.css文件内容；<br>
-（2）/public/index.html中引入字体图标库。
+（2）/public/index.html中引入字体图标库，可使用[iconfont阿里巴巴](http://www.iconfont.cn/)。
 #### 4、配置代理处理跨域
 （1）在根目录增加文件：vue.config.js<br>
 （2）添加相应代码，可参考[官方文档](https://cli.vuejs.org/zh/config/#devserver)
