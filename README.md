@@ -74,3 +74,60 @@ import Mint from 'mint-ui';
 import 'mint-ui/lib/style.css';
 Vue.use(Mint);
 ```
+#### 8、使用状态管理模式，vuex
+（1）根目录新增文件夹stote/（本次将vuex模块化，实际不需如此复杂，这里为了应用一下）；<br>
+（2）store/中新增index.js（store的中心文件，暴露store给mian.js引用）、新增modules/（存放各个模块）；<br>
+（3）modules/中新增indexItem.js(indexItem这个模块的中心文件)、新增indexItem/（存放该模块的actions、getters、mutations内容）；<br>
+（4）indexItem.js添加如下代码：
+```javascript
+// indexItem
+import actions from './indexItem/actions';
+import getters from './indexItem/getters';
+import mutations from './indexItem/mutations';
+
+const state = {
+    activeIndex:1
+};
+
+
+export default {
+    namespaced:true,
+    state,
+    actions,
+    getters,
+    mutations
+}
+```
+（5）store/index.js添加如下代码：
+```javascript
+import Vue from 'vue'
+import Vuex from 'vuex'
+import indexItem from './modules/indexItem'
+
+Vue.use(Vuex)
+
+
+export default new Vuex.Store({
+  modules: {
+    indexItem
+  }
+})
+```
+（6）根目录main.js做vuex全局挂载（修改文件引用即可），至此vuex即可全局使用，可参考[vuex官方实例](https://github.com/vuejs/vuex/tree/dev/examples/shopping-cart)；<br>
+（7）使用vuex,使用方法有很多，可参考[官方文档](https://vuex.vuejs.org/zh/guide/state.html)，我们这里使用对象展开运算符的方法:
+```javascript
+import { mapState } from 'vuex';
+
+
+...
+  computed: {
+    ...mapState('indexItem',[
+      'activeIndex'
+    ])
+  },
+...
+...
+    console.log(this.activeIndex); //即可使用
+...
+
+```

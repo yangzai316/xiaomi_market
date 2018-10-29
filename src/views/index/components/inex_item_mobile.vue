@@ -19,7 +19,7 @@ export default {
   },
   async mounted() { 
     const _data = await bannerListData();
-    this.bannerList = _data.data.item1;
+    this.bannerList = _data.data.item2;
   },
 }
 </script>
