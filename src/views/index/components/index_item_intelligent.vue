@@ -1,9 +1,9 @@
 <template>
 <div class="indexitem">  
   <mt-swipe :auto="0" class="swipe_box">
-    <mt-swipe-item v-for="(item,index) in bannerList.item2" :key="index"><img :src="item.img" class="swipe_img"></mt-swipe-item>
+    <mt-swipe-item v-for="(item,index) in bannerList.item3" :key="index"><img :src="item.img" class="swipe_img"></mt-swipe-item>
   </mt-swipe>
-  <p>bbbbbbbbbbb</p>
+  <p>ccccccccc</p>
 </div>
 </template>
 

@@ -4,7 +4,9 @@ import getters from './indexItem/getters';
 import mutations from './indexItem/mutations';
 
 const state = {
-    activeIndex:1
+    activeIndex:1,
+    bannerList:{},
+    swipeName:'swipe-next'
 };
 
 

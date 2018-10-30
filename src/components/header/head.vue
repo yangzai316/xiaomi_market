@@ -9,18 +9,17 @@
       <section class="tabs">
         <p class="all" v-show="tabType">全部</p>
         <ul :class="{open:tabType}">
-          <li :class="{active:item.active==1}" v-for="(item,index) in tabs" :key="index">{{item.name}}</li>
+          <li :class="{active:item.active==activeIndex}" v-for="(item,index) in tabs" :key="index" @click="changeItem(item.active)">{{item.name}}</li>
         </ul> 
         <div class="allbtn" :class="[tabType?'allbtn_rotate':'']" @click="changeTabType"><i class="iconfont icon-xiangxiajiantou"></i></div>
       </section>
-  </div>
-  <section class="blockbox"></section>
-  <div class="div"></div>
+  </div> 
 
 </div>
 </template>
 
 <script> 
+import { mapState,mapActions } from 'vuex';
 import { tabs } from './option.js';
 export default {
   name: 'index',
@@ -32,11 +31,27 @@ export default {
       tabType:false
     }
   },
+  computed:{
+    ...mapState('indexItem',[
+      'activeIndex',
+      'swipeName'
+    ]),
+  },
   methods:{
+    ...mapActions('indexItem',[
+      'changeIndexItem',
+      'setSwipeName'
+    ]),
     changeTabType(){
       this.tabType = !this.tabType;
+    },
+    changeItem(index){
+      this.tabType = false;
+      const _Name = index > this.activeIndex ? 'swipe-next':'swipe-prev';
+      this.setSwipeName(_Name);
+      this.changeIndexItem(index);
     }
-  }
+  },
 }
 </script>
 <style lang="less" scoped>
@@ -45,11 +60,8 @@ export default {
   top:0;
   z-index: 1;
   background-color: #f5f5f5;
-  width: 100%;
-}
-.blockbox{
-  height: 2.24rem;
-}
+  width: 10rem;
+} 
 nav{
   width:100%;
   display:flex; 
@@ -111,6 +123,9 @@ nav{
       border-bottom:2px #ed5b00 solid;
     }    
   }
+  ul::-webkit-scrollbar {
+    display: none;
+  }
   .open{
     width: 100%; 
     white-space:normal; 
@@ -146,6 +161,7 @@ nav{
       transform: rotate(180deg); 
   }
 }
+
  
  
 </style>
