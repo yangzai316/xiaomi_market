@@ -1,7 +1,7 @@
 <template>
 <div> 
 	<head-nav></head-nav>
-	<transition-group tag="div" :name="swipeName">
+	<transition-group tag="div" :name="swipeName" class="">
 		<index-item v-show="activeIndex==1" :key="1"></index-item>
 		<index-item-mobile v-show="activeIndex==2" :key="2"></index-item-mobile>
 		<index-item-intelligent v-show="activeIndex==3" :key="3"></index-item-intelligent>
@@ -49,30 +49,32 @@ export default {
 }
 </script>
 <style>  
+ ul::-webkit-scrollbar {
+    display: none;
+  }
 	.indexitem{
 		position:absolute;
 		top:2.24rem;
-		left:0;
-		right:0;
+		width: 10rem;
 	} 
 
 	 .swipe-prev-enter-active, .swipe-prev-leave-active {
-	 	transition: transform 0.5s;
+	 	transition: transform 0.15s;
 	 }
 	 .swipe-prev-enter{ 
-	 	transform: translateX(-375px);
+	 	transform: translateX(-10rem);
 	 }
 	 .swipe-prev-leave-to { 
-	 	transform: translateX(375px);
+	 	transform: translateX(10rem);
 	 }
 	 .swipe-next-enter-active, .swipe-next-leave-active {
-	 	transition: transform 0.5s;
+	 	transition: transform 0.15s;
 	 }
 	 .swipe-next-enter{ 
-	 	transform: translateX(375px);
+	 	transform: translateX(10rem);
 	 }
 	 .swipe-next-leave-to { 
-	 	transform: translateX(-375px);
+	 	transform: translateX(-10rem);
 	 }
 </style>
 

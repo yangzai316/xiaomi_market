@@ -129,5 +129,17 @@ import { mapState } from 'vuex';
 ...
     console.log(this.activeIndex); //即可使用
 ...
-
+...
+  methods:{
+    ...mapActions('indexItem',[
+      'changeIndexItem',
+      'setSwipeName'
+    ]),
+    changeItem(index){ 
+      this.changeIndexItem(index);//即可使用
+    }
+  },
+...
 ```
+#### 9、开始项目代码
+不过多介绍细节
