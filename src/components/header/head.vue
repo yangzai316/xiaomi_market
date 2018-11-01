@@ -22,7 +22,7 @@
 import { mapState,mapActions } from 'vuex';
 import { tabs } from './option.js';
 export default {
-  name: 'index',
+  name: 'headNav',
   components: { 
   },
   data(){

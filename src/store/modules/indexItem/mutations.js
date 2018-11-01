@@ -7,5 +7,8 @@ export default {
     },
     setSwipeName(state,name){
         state.swipeName = name;
+    },
+    changeFooTabIndex(state,index){
+        state.fooTabIndex = index;
     }
 };

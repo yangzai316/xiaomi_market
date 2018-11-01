@@ -3,7 +3,7 @@
   <mt-swipe :auto="0" class="swipe_box">
     <mt-swipe-item v-for="(item,index) in bannerList.item2" :key="index"><img :src="item.img" class="swipe_img"></mt-swipe-item>
   </mt-swipe>
-  <p>bbbbbbbbbbb</p>
+  <p style="height:20px;background-color:red;">不重复</p>
 </div>
 </template>
 

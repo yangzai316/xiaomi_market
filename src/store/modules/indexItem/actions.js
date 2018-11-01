@@ -8,4 +8,7 @@ export default {
     setSwipeName({commit},name){
         commit('setSwipeName',name);
     },
+    changeFooTabIndex({commit},index){
+        commit('changeFooTabIndex',index);
+    },
 };

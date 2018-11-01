@@ -1,0 +1,29 @@
+const footTabs = [
+    {
+        icon:"icon-shouye",
+        name:"首页",
+        toLink:'/',
+        active:1
+    },
+    {
+        icon:"icon-sousuowenjian",
+        name:"分类",
+        toLink:'/category',
+        active:2
+    },
+    {
+        icon:"icon-gouwuche",
+        name:"购物车",
+        toLink:'',
+        active:3
+    },
+    {
+        icon:"icon-gerenzhongxin",
+        name:"我的",
+        toLink:'',
+        active:4
+    }
+];
+export {
+    footTabs,
+};

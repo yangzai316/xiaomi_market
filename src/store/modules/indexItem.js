@@ -6,7 +6,8 @@ import mutations from './indexItem/mutations';
 const state = {
     activeIndex:1,
     bannerList:{},
-    swipeName:'swipe-next'
+    swipeName:'swipe-next',
+    fooTabIndex:1
 };
 
 
