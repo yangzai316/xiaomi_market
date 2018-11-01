@@ -16,7 +16,7 @@
 
 <script> 
 import { mapState,mapActions } from 'vuex';
-import headNav from '@/components/header/head.vue';
+import headNav from '@/components/header/index.vue';
 import footTab from '@/components/footer/index.vue';
 import indexItem from './components/index_item.vue';
 import indexItemMobile from './components/inex_item_mobile.vue';
