@@ -26,14 +26,13 @@
 
 <script>
 import { mapState,mapGetters } from 'vuex';
-// import { debounce } from 'lodash.debounce';
-var _debounce = require('lodash.debounce');
-
+const _debounce = require('lodash.debounce');
 
 import { categoryData } from '@/server/category.js';
 export default {
     data(){
         return{
+            mainDom:null,
             active:0,
             categoryList:[],
             accumulatorArr:[]
@@ -63,6 +62,7 @@ export default {
         }); 
         const _this = this;
         const main = document.querySelector('.main');
+        this.mainDom = main;
         main.addEventListener('scroll', function(){
             _this.scrollFun(main.scrollTop);
         });
@@ -70,14 +70,14 @@ export default {
     }, 
     methods:{
         leftBtn(index){
-            this.active = index; 
-            const main = document.querySelector('.main'); 
-            main.scrollTo(0, this.accumulatorArr[index]);
+            this.active = index;
+            this.mainDom.scrollTo(0, this.accumulatorArr[index]);
         },
         scrollFun:_debounce(function(_scrollTop){
+            const _threshold = 120;//滚动变化的阈值
             const accumulatorArr = this.accumulatorArr; 
             for(let i=0;i<accumulatorArr.length;i++){
-                if(_scrollTop<=accumulatorArr[i+1]) return this.active = i;
+                if(_scrollTop + _threshold <= accumulatorArr[i+1]) return this.active = i;
             }
         },200), 
         filterCategoryList(data){ //处理接口返回的数据结构

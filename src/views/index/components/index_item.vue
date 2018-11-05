@@ -48,7 +48,6 @@
 import { mapState,mapActions } from 'vuex';
 import { recommendListData,listData} from '@/server/index.js';
 export default {
-	name: 'index',
 	components: {  
 	},
 	data(){

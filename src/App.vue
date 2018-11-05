@@ -37,7 +37,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
-	background-color: #f5f5f5;
+	background-color: #fff;
 }
 ol, ul {
 	list-style: none;
@@ -57,7 +57,6 @@ table {
 .app{
     max-width: 540px;
 	margin: 0 auto;
-	background-color: #f5f5f5;
 	min-width: 320px;
 	overflow-x: auto;
 }

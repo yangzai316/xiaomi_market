@@ -14,13 +14,13 @@ const footTabs = [
     {
         icon:"icon-gouwuche",
         name:"购物车",
-        toLink:'',
+        toLink:'/car',
         active:3
     },
     {
         icon:"icon-gerenzhongxin",
         name:"我的",
-        toLink:'',
+        toLink:'/i',
         active:4
     }
 ];

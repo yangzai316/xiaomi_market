@@ -13,6 +13,7 @@ import categoryHead from '@/components/header/category.vue';
 import footTab from '@/components/footer/index.vue'; 
 import categoryMain from './components/categoryMain.vue';
 export default {
+    name:"category",
     components:{
         categoryHead,
         footTab, 

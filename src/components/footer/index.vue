@@ -2,7 +2,6 @@
 <div class="footTabs">
     <div :class="{item:true,active:item.active==fooTabIndex}" 
         v-for="(item,index) in footTabs" :key="index"
-        @click="changeTab(item.active,item.toLink)"
     >
         <p><i :class="item.icon+' iconfont'"></i></p>
         <p>{{item.name}}</p>
@@ -12,28 +11,23 @@
 
 <script>  
 import { footTabs } from './option.js';
-import { mapActions,mapState } from 'vuex';
 export default {
-  name: 'footTabs',
   components: { 
   },
   data(){
     return{ 
         footTabs,
+        fooTabIndex:''
     }
   },
-  computed:{ 
-      ...mapState('indexItem',[
-          'fooTabIndex'
-      ])
+  mounted() {
+      this.fooTabIndex = this.$route.name;
+  },    
+  computed:{  
   },
   methods:{
-    ...mapActions('indexItem',[
-        'changeFooTabIndex'
-    ]),
-    changeTab(index,toLink){
+    changeTab(toLink){
         this.$router.push(toLink);
-        this.changeFooTabIndex(index);
     }
   },
 }

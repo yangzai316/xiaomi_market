@@ -8,9 +8,6 @@
 		<index-item-intelligent v-show="activeIndex==4" :key="4"></index-item-intelligent>
 	</transition-group>
 	<foot-tab></foot-tab>
-
-
-
 </div>
 </template>
 
@@ -59,6 +56,7 @@ export default {
 		bottom: 0;
 		width: 10rem;
 		overflow-y: scroll;
+		background-color: #F5f5f5;
 	} 
 	.indexbox::-webkit-scrollbar {
 		display: none;

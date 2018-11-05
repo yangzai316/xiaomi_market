@@ -1,0 +1,48 @@
+const tabs = [
+    {
+        tab:[
+            {
+                icon:'icon-shezhi',
+                name:'设置',
+                bgColor:'#818c99',
+                toLink:''
+            }
+        ]
+    },
+    {
+        tab:[
+            {
+                icon:'icon-huiyuanzhongxin',
+                name:'会员中心',
+                bgColor:'#fdbf2d',
+                toLink:''
+            },
+            {
+                icon:'icon-youhuiquan',
+                name:'我的优惠',
+                bgColor:'#51bbe0',
+                toLink:''
+            }
+        ]
+    },
+    {
+        tab:[
+            {
+                icon:'icon-fuwuzhongxin',
+                name:'服务中心',
+                bgColor:'#f96c5e',
+                toLink:''
+            },
+            {
+                icon:'icon-dianpu',
+                name:'小米之家',
+                bgColor:'#ff8b43',
+                toLink:''
+            }
+        ]
+    }
+
+];
+export {
+    tabs,
+};
