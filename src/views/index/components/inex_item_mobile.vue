@@ -23,7 +23,7 @@ export default {
 	}
 }
 </script>
-<style lang="less"> 
+<style lang="less" scoped> 
 .swipe_box{
   height: 5rem !important;
 }

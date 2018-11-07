@@ -8,6 +8,7 @@ import Category from './views/category/index.vue'
 import Login from './views/login/index.vue'
 import Car from './views/car/index.vue'
 import I from './views/i/index.vue'
+import Detail from './views/detail/index.vue'
 
 Vue.use(routerCenter)
 
@@ -40,6 +41,11 @@ const Router = new routerCenter({
       path: '/i',
       name: 'i',
       component: I
+    },
+    {
+      path: '/detail',
+      name: 'detail',
+      component: Detail
     },
     {
       path: '/test',

@@ -1,11 +1,13 @@
 <template>
 <div class="footTabs">
-    <div :class="{item:true,active:item.active==fooTabIndex}" 
+    <router-link :to="item.toLink" tag="div" 
+        :class="{item:true,active:item.active==fooTabIndex}" 
         v-for="(item,index) in footTabs" :key="index"
-    >
+    > 
         <p><i :class="item.icon+' iconfont'"></i></p>
-        <p>{{item.name}}</p>
-    </div>
+        <p>{{item.name}}</p> 
+
+    </router-link>
 </div>
 </template>
 
@@ -26,9 +28,6 @@ export default {
   computed:{  
   },
   methods:{
-    changeTab(toLink){
-        this.$router.push(toLink);
-    }
   },
 }
 </script>
