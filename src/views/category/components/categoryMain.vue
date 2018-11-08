@@ -120,6 +120,9 @@ export default {
     background-color:#fff;
     padding:0 10px;
     >li{
+        img{
+            width: 100%;
+        }
         .title{
             text-align: center;
             line-height: 1rem;
