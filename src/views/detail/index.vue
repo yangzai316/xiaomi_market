@@ -28,7 +28,7 @@
     </section>
     <section class="actbox" @click="setShowChoose(true)">
         <span class="title">已选</span>
-        <span class="cont">小米8 青春版 4GB+64GB 深空灰 x 1</span>
+        <span class="cont">{{txt}}</span>
         <i class="iconfont icon-xiangyoujiantou"></i>
     </section>
     <section class="actbox">
@@ -43,17 +43,27 @@
         <span><i class="iconfont icon-duigouzhong"></i>7天无理由退货</span>
         <i class="iconfont icon-xiangyoujiantou"></i>
     </section>
-    <choose ref='openChoose'></choose>
+    <choose ref='openChoose' @finishCar="finishCar"></choose>
+    <comments></comments>
+    <details-imgs></details-imgs>
+    <commends></commends>
+
 </div>
 </template>
 
 <script>
 import { detailData } from '@/server/detail.js'; 
-// import { mapMutations,mapActions } from 'vuex';
-import choose from './components/choose.vue'
+import { mapMutations } from 'vuex';
+import choose from './components/choose.vue';
+import comments from './components/comments.vue';
+import detailsImgs from './components/detailsImgs.vue';
+import commends from './components/commends.vue';
 export default {
     components:{
-        choose
+        choose,
+        comments,
+        detailsImgs,
+        commends
     },
     data(){
         return{
@@ -62,7 +72,8 @@ export default {
             product_name:'',
             market_price:'',
             class_parameters:'',
-            data:{}
+            data:{},
+            txt:'小米8 青春版 4GB+64GB 深空灰 x 1'
         }
     },
     async mounted(){
@@ -75,17 +86,20 @@ export default {
         this.market_price = _data.data.goods_info[0].market_price;
         this.class_parameters = _data.data.goods_info[0].class_parameters.list
         this.data = _data.data;
-        
+        this.getCommentsList(_data.data.goods_share_datas.comments.list);
+        this.getDetailsImgList(_data.data.goods_tpl_datas['7068'].sections);
     },
     methods:{
-        // ...mapMutations('details',[
-        //     'getChooseData'
-        // ]),
-        // ...mapActions('details',[
-        //     'setShowChoose'
-        // ])
+        ...mapMutations('details',[
+            'getCommentsList',
+            'getDetailsImgList'
+        ]),
         setShowChoose(){
             this.$refs.openChoose.open(this.data)
+        },
+        finishCar(name,n){
+             
+            this.txt =`${name} x${n}`;
         }
     }
 }; 
