@@ -47,6 +47,7 @@
     <comments></comments>
     <details-imgs></details-imgs>
     <commends></commends>
+    <surebtn @incar="setShowChoose"></surebtn>
 
 </div>
 </template>
@@ -58,12 +59,14 @@ import choose from './components/choose.vue';
 import comments from './components/comments.vue';
 import detailsImgs from './components/detailsImgs.vue';
 import commends from './components/commends.vue';
+import surebtn from './components/surebtn.vue';
 export default {
     components:{
         choose,
         comments,
         detailsImgs,
-        commends
+        commends,
+        surebtn
     },
     data(){
         return{

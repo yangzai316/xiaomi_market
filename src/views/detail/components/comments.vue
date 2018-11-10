@@ -75,6 +75,7 @@ export default {
                 border-radius: 50%;
                 overflow: hidden;
                 float:left;
+                margin-right: .213333rem;
                 img{
                     width: 100%;
                 }

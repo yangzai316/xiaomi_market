@@ -1,14 +1,21 @@
 <template>
-<div v-if="detailsImgList.length>0">
-    <img :src="item.body.img_url" alt="" v-for="(item,index) in detailsImgList" :key="index" v-if="item.body&&item.body.img_url&&index>=12&&index<=32"> 
-    <div class="more">更多评论<i class="iconfont icon-youjiantou"></i></div>
-    <img :src="detailsImgList[41].body.img_url"> 
-</div>
+    <div>
+        <div v-if="detailsImgList.length>0">
+            <img :src="item.body.img_url" alt="" v-for="(item,index) in detailsImgList" :key="index" v-if="item.body&&item.body.img_url&&index>=12&&index<=32"> 
+            <div class="more" @click="openParams">查看全部参数<i class="iconfont icon-youjiantou"></i></div>
+            <img :src="detailsImgList[41].body.img_url"> 
+        </div>
+        <params ref="paramsDiago"></params>
+    </div>
 </template>
 
 <script>
+import params from'./params.vue'
 import { mapState } from 'vuex';
 export default {
+    components:{
+        params
+    },
     data(){
         return{
             
@@ -17,7 +24,12 @@ export default {
     computed:{
         ...mapState('details',[
             'detailsImgList'
-        ])
+        ]),
+    },
+    methods:{
+        openParams(){
+            this.$refs.paramsDiago.open();
+        } 
     }
 }; 
 </script>

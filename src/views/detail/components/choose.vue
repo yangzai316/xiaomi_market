@@ -57,14 +57,12 @@ export default {
             idDealList:[],
             chooseList:[],
             currentList:{},
-            counts:1,
-            transitionName:'up'
+            counts:1
             
         }
     },
     methods:{
         open(data){
-            console.log(data);
             this.showChoose = true;
             this.buyOption = data.buy_option;
             this.chooseList = data.goods_info; 
@@ -112,7 +110,6 @@ export default {
         },
         close(){
             this.showChoose = false;
-            this.transitionName = 'down';
         },
         surebtn(){
             if(!this.currentList) return;

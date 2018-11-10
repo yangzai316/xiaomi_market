@@ -5,4 +5,8 @@ export default {
     getDetailsImgList(state,list){
         state.detailsImgList = list;  
     },
+    setSwiperList(state,{key,list}){
+        state.swiperShow = key;
+        state.swiperList = list;  
+    },
 };

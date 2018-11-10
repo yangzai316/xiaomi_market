@@ -3,7 +3,9 @@ import mutations from './details/mutations';
 
 const state = {
     commentsList: [],
-    detailsImgList:[]
+    detailsImgList:[],
+    swiperList:[],
+    swiperShow:false
 }
 
  
