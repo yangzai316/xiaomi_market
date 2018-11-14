@@ -8,17 +8,27 @@
 #### 项目启动
 本项目启动，需要后端接口的支持（即上面提到的假数据），所以需要启动两个项目：
 - 后端接口项目：
-克隆或下载后端接口项目，启动该项目，此处不过多介绍，请移驾[后端接口](xxx)，会有相关说明；
+克隆或下载后端接口项目，启动该项目，此处不过多介绍，请移驾[后端接口](https://github.com/yangzaiwangzi/xiaomi_market_api)，会有相关说明；
 - 前端项目（本仓库的项目）
 ```
 git clone https://github.com/yangzaiwangzi/xiaomi_market.git
 //开发环境
 npm install
-npm run resve
+npm run serve
 //生产环境
 npm run build
 
 ```
+#### 技术栈+框架
+- vue 2.0
+- vue-cli 3.0
+- vuex
+- vue-router
+- vue-cookies
+- axios
+- mint-ui
+- rem(flexible.js实现页面自适应)
+- less
 #### 路由
 - 首页
   - 商品详情
