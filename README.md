@@ -163,3 +163,4 @@ import { mapState } from 'vuex';
 #### 9、开始项目代码
 不过多介绍项目的代码进行的细节,会抽取部分简介：
 - 引入‘lodash.debounce’进行防抖操作；
+- 引入‘vue-cookies’进行cookie操作；

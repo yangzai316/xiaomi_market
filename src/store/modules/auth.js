@@ -4,7 +4,7 @@ import mutations from './auth/mutations';
 
 
 const state = {
-  checkoutStatus: 123
+  logined: ''
 }
 
  

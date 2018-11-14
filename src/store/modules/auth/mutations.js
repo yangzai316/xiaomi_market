@@ -1,6 +1,6 @@
 // mutations
 export default {
-    setCheckoutStatus (state, status) {
-        state.checkoutStatus = status
+    setLogined (state, status) {
+        state.logined = status
     }
 }

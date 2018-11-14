@@ -18,6 +18,7 @@
 
 <script>
 import { loginData } from '@/server/login.js';
+import { mapMutations } from 'vuex';
 export default {
     name:"login",
     data(){
@@ -31,6 +32,9 @@ export default {
     mounted(){ 
     },
     methods:{
+        ...mapMutations('auth',[
+            'setLogined'
+        ]),
         open(){
             this.openEye = !this.openEye;
         },
@@ -52,7 +56,8 @@ export default {
             });
             if(_data.result){
                 this.$toast('登陆成功');
-                window.localStorage.setItem('username',_data.user);
+                this.setLogined(_data.user);
+                this.$cookies.set("user_session",_data.user)
                 const _backUrl = this.$route.query.backUrl?this.$route.query.backUrl:'/';
                 this.$router.push(`${_backUrl}`);
             }else{

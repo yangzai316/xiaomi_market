@@ -1,14 +1,14 @@
 <template>
 <div class="box">
     <ul>
-        <li>
+        <router-link tag="li" to="/">
             <p><i class="iconfont icon-shouye"></i></p>
             <p>首页</p>
-        </li>
-        <li>
+        </router-link>
+        <router-link tag="li" to="/car">
             <p><i class="iconfont icon-gouwuche"></i></p>
             <p>购物车</p>
-        </li>
+        </router-link>
         <li @click="incar">加入购物车</li>
     </ul>
 </div>

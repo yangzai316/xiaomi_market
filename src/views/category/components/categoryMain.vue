@@ -14,10 +14,10 @@
             </p>
             <img src="" alt="">
             <ul class="productbox" >
-                <li v-for="(list_item,list_index) in item.list_group" :key="list_index" v-if="list_item.product_name">
+                <router-link v-for="(list_item,list_index) in item.list_group" :key="list_index" v-if="list_item.product_name" to="/detail" tag="li">
                     <img :src="list_item.img_url" alt="">
                     <p>{{list_item.product_name}}</p>
-                </li>
+                </router-link>
             </ul>
         </li>
 </ul>

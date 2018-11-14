@@ -68,7 +68,7 @@ export default {
 	} 
 
 	 .swipe-prev-enter-active, .swipe-prev-leave-active {
-	 	transition: transform 0.15s;
+	 	transition: transform 0.35s;
 	 }
 	 .swipe-prev-enter{ 
 	 	transform: translateX(-10rem);
@@ -77,7 +77,7 @@ export default {
 	 	transform: translateX(10rem);
 	 }
 	 .swipe-next-enter-active, .swipe-next-leave-active {
-	 	transition: transform 0.15s;
+	 	transition: transform 0.35s;
 	 }
 	 .swipe-next-enter{ 
 	 	transform: translateX(10rem);

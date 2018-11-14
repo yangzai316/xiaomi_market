@@ -4,6 +4,17 @@
   </div>
 </template>
 
+<script>
+export default {
+	created(){
+		if (this.$cookies.isKey("user_session")) {
+			this.$store.commit('auth/setLogined',this.$cookies.get("user_session"));
+		} else { 
+			this.$store.commit('auth/setLogined','');
+		}
+	}
+}; 
+</script>
 <style lang="less">
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126

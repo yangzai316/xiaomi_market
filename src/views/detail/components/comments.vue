@@ -1,7 +1,7 @@
 <template>
 <div>
     <ul class="comments"> 
-        <li v-for="(item,index) in commentsList" :key="index">
+        <router-link v-for="(item,index) in commentsList" :key="index" tag="li" to="/detail/commentDetail">
             <div class="comments_top">
                 <div class="headbox">
                     <img :src="item.user_avatar" alt="">
@@ -22,9 +22,9 @@
                 </div>
             </div>
             <div class="reply"><span>官方回复：</span> {{item.reply_content}}</div>
-        </li>
+        </router-link>
     </ul>
-    <div class="more">更多评论<i class="iconfont icon-youjiantou"></i></div>
+    <router-link class="more" tag="div" to="/detail/comment">更多评论<i class="iconfont icon-youjiantou"></i></router-link>
 </div>
 </template>
 

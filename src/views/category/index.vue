@@ -1,6 +1,6 @@
 <template>
 <div class="category">
-    <category-head></category-head>
+    <common-header title="分类"></common-header>
     <category-main></category-main>
 	<foot-tab></foot-tab> 
 </div>
@@ -9,29 +9,15 @@
 <script>
 // import { categoryData } from '@/server/category.js';
 // import { mapActions } from 'vuex';
-import categoryHead from '@/components/header/category.vue';
+import commonHeader from '@/components/header/commonHeader.vue';
 import footTab from '@/components/footer/index.vue'; 
 import categoryMain from './components/categoryMain.vue';
 export default {
     name:"category",
     components:{
-        categoryHead,
+        commonHeader,
         footTab, 
         categoryMain
-    },
-    data(){
-        return{
-            
-        }
-    },
-    async mounted(){
-        // const _data = await categoryData();
-        // this.getCategoryList(_data.data);
-    },
-    methods:{
-        // ...mapActions('category',[
-        //     'getCategoryList'
-        // ])
     }
 }; 
 </script>

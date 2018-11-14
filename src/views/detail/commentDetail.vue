@@ -1,10 +1,6 @@
 <template>
 <div>
-    <header>
-        <i class="iconfont icon-xiangzuojiantou"></i>
-        <span>评论详情</span>
-        <i class="iconfont icon-icon-"></i>
-    </header>
+    <common-header title="评论详情"></common-header>
     <ul>
         <li >
             <div class="comments_top">
@@ -34,16 +30,19 @@
             </div>
         </li>
     </ul>
+    <swiper-mask></swiper-mask>
 </div>
 </template>
 
 <script>
 import { commentDetailData } from '@/server/detail.js'; 
-
+import { mapMutations } from 'vuex';
 import swiperMask from './components/swiperMask.vue';
+import commonHeader from '@/components/header/commonHeader.vue';
 export default {
     components:{
-        swiperMask
+        swiperMask,
+        commonHeader
     },
     data(){
         return{
@@ -56,6 +55,9 @@ export default {
         
     },
     methods:{
+        ...mapMutations('details',[
+            'setSwiperList'
+        ]),
         openImg(list){
             this.setSwiperList({
                 key:true,
@@ -67,27 +69,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-header{
-    i{
-        float: left;
-        font-size: .533333rem;
-        margin:0 .266667rem;
-    }
-    .icon-icon-{
-        float: right;
-        font-size: .746667rem;
-    }
-    font-size: .426667rem;
-    background: #f2f2f2;
-    height: 1.333333rem;
-    line-height: 1.333333rem;
-    text-align: center;
-    position: fixed;
-    top:0;
-    width: 10rem;
-}
 ul{
-    padding-top:1.333333rem;
     li{
         margin:.426667rem;
         color: #3c3c3c;

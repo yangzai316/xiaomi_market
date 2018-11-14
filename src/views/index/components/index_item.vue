@@ -1,7 +1,7 @@
 <template>
 <div class="indexitem">  
 	<mt-swipe :auto="0" class="swipe_box">
-		<mt-swipe-item v-for="(item,index) in bannerList.item1" :key="index"><img :src="item.img" class="swipe_img"></mt-swipe-item>
+		<mt-swipe-item v-for="(item,index) in bannerList.item1" :key="index"><router-link tag="a" to="/detail"><img :src="item.img" class="swipe_img"></router-link></mt-swipe-item>
 	</mt-swipe>
 	<ul class="iconlist">
 		<li>
@@ -21,16 +21,16 @@
 		</li> 
 	</ul>
 	<section class="recommendImg one">
-		<img :src="recommendImg.img1" alt=""> 
+		<router-link tag="a" to="/detail"><img :src="recommendImg.img1" alt=""></router-link> 
 	</section>
 	<section class="recommendImg two"> 
-		<img :src="recommendImg.img2" alt="">
-		<img :src="recommendImg.img3" alt="">
+		<router-link tag="a" to="/detail"><img :src="recommendImg.img2" alt=""></router-link> 
+		<router-link tag="a" to="/detail"><img :src="recommendImg.img3" alt=""></router-link>  
 	</section>
-	<img :src="recommendImg.img4" alt="">
-	<img :src="recommendImg.img5" alt=""> 
+		<router-link tag="a" to="/detail"><img :src="recommendImg.img4" alt=""></router-link> 
+		<router-link tag="a" to="/detail"><img :src="recommendImg.img5" alt=""></router-link>
 	<ul class="list">
-		<li v-for="(item,index) in listData" :key="index">
+		<router-link v-for="(item,index) in listData" :key="index" tag="li" to="/detail">
 			<div class="imgbox">
 				<img :src="item.imgUrl" alt="">
 			</div>
@@ -39,7 +39,7 @@
 				<p>{{item.description}}</p>
 				<p><span>￥{{item.price}}</span><span v-if="item.oldPrice">￥{{item.oldPrice}}</span></p>
 			</div>
-		</li>
+		</router-link>
 	</ul> 
 </div>
 </template>

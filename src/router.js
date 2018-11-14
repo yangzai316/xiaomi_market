@@ -34,15 +34,15 @@ const Router = new routerCenter({
     {
       path: '/car',
       name: 'car',
-      component: Car,
-      meta: { 
-        requireAuth: true
-      }
+      component: Car
     },
     {
       path: '/i',
       name: 'i',
-      component: I
+      component: I,
+      meta: { 
+        requireAuth: true
+      }
     },
     {
       path: '/detail',
@@ -69,7 +69,7 @@ const Router = new routerCenter({
 // 判断是否需要登录权限 以及是否登录
 Router.beforeEach((to, from, next) => {
 	if (to.matched.some(res => res.meta.requireAuth)) {
-		if (localStorage.getItem('username')) {
+		if (this.$cookies.isKey("user_session")) {
 			next()
 		} else {
       Toast('请先登陆...');

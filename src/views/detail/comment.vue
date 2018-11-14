@@ -1,15 +1,11 @@
 <template>
 <div>
-    <header>
-        <i class="iconfont icon-xiangzuojiantou"></i>
-        <span>评论列表</span>
-        <i class="iconfont icon-icon-"></i>
-    </header>
+    <common-header  title="评论列表"></common-header>
     <ul v-infinite-scroll="loadMore"
         infinite-scroll-disabled="loading"
         infinite-scroll-distance="40"
         :style="{maxHeight:WHeight+'px'} ">
-        <li v-for="(item,index) in list" :key="index" >
+        <router-link tag="li" to="/detail/commentDetail" v-for="(item,index) in list" :key="index" >
             <div class="comments_top">
                 <div class="headbox">
                     <img :src="item.user_avatar">
@@ -23,8 +19,8 @@
                 </div>
             </div>
             <div class="content">{{item.comment_content}}</div>
-            <div class="imgs" @click="openImg(item.comment_images)">
-                <div class="itemimgbox" v-for="(img_item,img_index) in item.comment_images" :key="img_index"
+            <div class="imgs">
+                <div  @click.prevent="openImg(item.comment_images)" class="itemimgbox" v-for="(img_item,img_index) in item.comment_images" :key="img_index"
                     :style="{backgroundImage: 'url('+img_item+')'}"
                 >
                 </div>
@@ -36,7 +32,7 @@
                 </p>
                 <router-link tag="div" to="/detail/commentDetail" class="more" v-if="item.user_reply_num>3">查看全部评论<i class="iconfont icon-xiangyoujiantou"></i></router-link>
             </div>
-        </li>
+        </router-link>
         <li class="loading"  v-show="!end">数据请求中...</li>
         <li class="loading" v-show="end">没有数据了...</li>
     </ul>
@@ -47,11 +43,12 @@
 <script>
 import { commentData } from '@/server/detail.js';
 import { mapMutations } from 'vuex';
-
 import swiperMask from './components/swiperMask.vue';
+import commonHeader from '@/components/header/commonHeader.vue';
 export default {
     components:{
-        swiperMask
+        swiperMask,
+        commonHeader
     },
     data(){
         return{
@@ -94,27 +91,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-header{
-    i{
-        float: left;
-        font-size: .533333rem;
-        margin:0 .266667rem;
-    }
-    .icon-icon-{
-        float: right;
-        font-size: .746667rem;
-    }
-    font-size: .426667rem;
-    background: #f2f2f2;
-    height: 1.333333rem;
-    line-height: 1.333333rem;
-    text-align: center;
-    position: fixed;
-    top:0;
-    width: 10rem;
-}
 ul{
-    padding-top:1.333333rem;
     overflow-y: scroll;
     li{
         margin:.426667rem;
