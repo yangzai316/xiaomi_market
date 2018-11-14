@@ -71,7 +71,9 @@ export default {
             },0); 
         }
     },
-	async beforeCreate() {
+	async created() {
+        if(!this.logined) return;
+        
         const list_data = await carData();
         let _listData = list_data.data.recommend_list; 
         _listData.length = 4;
@@ -97,7 +99,12 @@ export default {
             this.listData.splice(index, 1);
         },
         pay(){
-            this.$toast('不会以为真的可以结算吧~~~');
+            if(this.logined) {
+                this.$toast('不会以为真的可以结算吧~~~');
+            }else{
+                this.$toast('还没有登陆...');
+                this.$router.push({path:'login',query: { backUrl: 'car' }}); 
+            };
         }  
     }
 }; 

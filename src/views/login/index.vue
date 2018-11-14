@@ -58,7 +58,7 @@ export default {
                 this.$toast('登陆成功');
                 this.setLogined(_data.user);
                 this.$cookies.set("user_session",_data.user)
-                const _backUrl = this.$route.query.backUrl?this.$route.query.backUrl:'/';
+                const _backUrl = this.$route.query.backUrl?this.$route.query.backUrl:'/i';
                 this.$router.push(`${_backUrl}`);
             }else{
                 this.$toast(_data.message);

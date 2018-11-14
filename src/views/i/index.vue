@@ -5,8 +5,8 @@
             <img src="./../../../public/img/yang.jpg">
         </div>
         <div class="proinfo">
-            <p>阳仔</p>
-            <p>3838438</p>
+            <p>{{logined}}</p>
+            <p>18383834380</p>
         </div>
     </section>
     <section class="order">
@@ -45,18 +45,21 @@
 <script>
 
 import footTab from '@/components/footer/index.vue';
-import {tabs} from './option.js'
+import {tabs} from './option.js';
+import { mapState } from 'vuex';
 export default {
     data(){
         return{
             tabs
-            
         }
     },
     components:{
         footTab
     },
     computed:{
+        ...mapState('auth',[
+            'logined'
+        ])
     }
 }; 
 </script>
