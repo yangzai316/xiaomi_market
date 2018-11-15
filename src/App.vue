@@ -1,10 +1,14 @@
 <template>
   <div class="app">
     <router-view/>
+	<div class="loading" v-show="showLoading">
+		<i class="iconfont icon-Loading"></i>
+	</div>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
 	created(){
 		if (this.$cookies.isKey("user_session")) {
@@ -12,6 +16,11 @@ export default {
 		} else { 
 			this.$store.commit('auth/setLogined','');
 		}
+	},
+	computed:{
+		...mapState('auth',[
+			'showLoading'
+		])
 	}
 }; 
 </script>
@@ -70,5 +79,28 @@ table {
 	margin: 0 auto;
 	min-width: 320px;
 	overflow-x: auto;
+	.loading{
+		position: fixed;
+		z-index: 999; 
+		width:10rem;
+		top:2.666667rem;
+		text-align: center;
+		.icon-Loading{  
+			font-size: .906667rem;
+			display: inline-block;
+			animation: spin 1s linear infinite;
+			color: #fb7d34;
+		}
+            
+		@keyframes spin {
+			from {
+				transform: rotate(0deg);
+			}
+			to {
+				transform: rotate(360deg);
+			}
+		}
+	} 
 }
+
 </style>

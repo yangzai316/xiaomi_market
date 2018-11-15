@@ -12,11 +12,12 @@ if(env=='production'){
     config = dev_config;
 };
 module.exports = {
+    baseUrl:'./',
     devServer: {// 设置代理
-        port:config.port,
+        port:'8888',
         proxy: {
             "/v1": {
-                target: config.proxy_v1, // 目标域名
+                target: 'http://39.108.81.245:8887/', // 目标域名
                 ws: false, // 是否启用websockets
                 changOrigin: true, //开启代理
                 pathRewrite: {

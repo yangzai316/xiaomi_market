@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
     data(){
         return{
@@ -17,8 +18,16 @@ export default {
         }
     },
     props: ['title'],
+	computed:{
+		...mapState('auth',[
+			'prevUrl'
+		])
+	},
     methods:{
         bakcUrl(){
+            if(this.prevUrl.includes('/login')){
+                return this.$router.push('/');
+            }
             this.$router.go(-1);
         }
     }

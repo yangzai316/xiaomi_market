@@ -12,16 +12,15 @@ axios.defaults.timeout = 10000;
 // post请求头
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
 // 请求拦截器
-// axios.interceptors.request.use(    
-//     config => {
-//         const token = '123456789';        
-//         token && (config.headers.Authorization = token);     
-//         return config;    
-//     },    
-//     error => {        
-//         return Promise.error(error);    
-//     }
-// );
+axios.interceptors.request.use(    
+    config => {
+        store.commit('auth/showLoad',true);
+        return config;    
+    },    
+    error => {        
+        return Promise.error(error);    
+    }
+);
 
 // 响应拦截器
 axios.interceptors.response.use(    
@@ -31,9 +30,9 @@ axios.interceptors.response.use(
                 path: '/login',
                 query: {backUrl: router.history.current.fullPath}
             });
-            console.log(store);
-            store.commit('setLogined',false);
-        };    
+            store.commit('auth/setLogined',false);
+        }; 
+        store.commit('auth/showLoad',false);   
         return Promise.resolve(response); 
     },
     error => {        

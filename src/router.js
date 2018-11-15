@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import store from '@/store/index' 
 import routerCenter from 'vue-router'
 import { Toast } from 'mint-ui'; 
 import VueCookies from 'vue-cookies'//操作cookie
@@ -69,6 +70,7 @@ const Router = new routerCenter({
 });
 // 判断是否需要登录权限 以及是否登录
 Router.beforeEach((to, from, next) => {
+  store.commit('auth/setPrevUrl',from.fullPath);
 	if (to.matched.some(res => res.meta.requireAuth)) {
 		if (VueCookies.isKey("user_session")) {
 			next()

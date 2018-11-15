@@ -50,6 +50,7 @@ export default {
             for(let i=0;i<_l;i++){ 
                 _arr.push(li_list[i].offsetHeight); 
             };  
+                console.log(_arr);
             _arr.unshift(0,0);//获取每个.main_item的高（除最后一个元素，增加（0，0）方便后面求和）
             
             let _accumulator = [];
