@@ -15,8 +15,14 @@ git clone https://github.com/yangzaiwangzi/xiaomi_market.git
 //开发环境
 npm install
 npm run serve
+
+//测试环境
+npm run test
+//打包上传之后，注意服务端代理的配置
+
 //生产环境
-npm run build
+npm run production
+//打包上传之后，注意服务端代理的配置
 
 ```
 #### 技术栈+框架
