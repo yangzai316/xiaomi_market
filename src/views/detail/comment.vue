@@ -33,7 +33,7 @@
                 <router-link tag="div" to="/detail/commentDetail" class="more" v-if="item.user_reply_num>3">查看全部评论<i class="iconfont icon-xiangyoujiantou"></i></router-link>
             </div>
         </router-link>
-        <li class="loading"  v-show="!end">数据请求中...</li>
+        <li class="loading"  v-show="!end">数据处理中...</li>
         <li class="loading" v-show="end">没有数据了...</li>
     </ul>
     <swiper-mask></swiper-mask>

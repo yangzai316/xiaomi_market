@@ -5,7 +5,6 @@ import { Toast } from 'mint-ui';
 import VueCookies from 'vue-cookies'//操作cookie
 
 import Index from './views/index/index.vue'
-import Test from './views/test/test.vue'
 import Category from './views/category/index.vue'
 import Login from './views/login/index.vue'
 import Car from './views/car/index.vue'
@@ -60,11 +59,6 @@ const Router = new routerCenter({
       path: '/detail/commentDetail',
       name: 'commentDetail',
       component: CommentDetail
-    },
-    {
-      path: '/test',
-      name: 'test',
-      component: Test
     },
   ]
 });

@@ -1,5 +1,6 @@
 <template>
 <div>
+    <detail-header></detail-header>
 	<mt-swipe :auto="0" class="swipe_box">
 		<mt-swipe-item v-for="(item,index) in swiperImg" :key="index"><img :src="item.img_url" class="swipe_img"></mt-swipe-item>
 	</mt-swipe>
@@ -60,13 +61,15 @@ import comments from './components/comments.vue';
 import detailsImgs from './components/detailsImgs.vue';
 import commends from './components/commends.vue';
 import surebtn from './components/surebtn.vue';
+import detailHeader from '@/components/header/detailHeader.vue';
 export default {
     components:{
         choose,
         comments,
         detailsImgs,
         commends,
-        surebtn
+        surebtn,
+        detailHeader
     },
     data(){
         return{

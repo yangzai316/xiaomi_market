@@ -1,7 +1,7 @@
 <template>
   <div class="app">
     <router-view/>
-	<div class="loading" v-show="showLoading">
+	<div class="load" v-show="showLoading">
 		<i class="iconfont icon-Loading"></i>
 	</div>
   </div>
@@ -79,7 +79,7 @@ table {
 	margin: 0 auto;
 	min-width: 320px;
 	overflow-x: auto;
-	.loading{
+	.load{
 		position: fixed;
 		z-index: 999; 
 		width:10rem;

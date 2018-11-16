@@ -18,7 +18,6 @@
 export default {
     methods:{
         incar(){
-            console.log(123);
             this.$emit('incar');
         }
     }

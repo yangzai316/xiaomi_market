@@ -12,7 +12,6 @@
             <p class="title">
                 <span>{{item.name}}</span>
             </p>
-            <img src="" alt="">
             <ul class="productbox" >
                 <router-link v-for="(list_item,list_index) in item.list_group" :key="list_index" v-if="list_item.product_name" to="/detail" tag="li">
                     <img :src="list_item.img_url" alt="">
@@ -35,7 +34,8 @@ export default {
             mainDom:null,
             active:0,
             categoryList:[],
-            accumulatorArr:[]
+            accumulatorArr:[],
+            accumulatorKey:true
         }
     },
     computed:{ 
@@ -43,24 +43,7 @@ export default {
     async mounted(){
         const _data = await categoryData();
         this.categoryList = this.filterCategoryList(_data.data);
-        this.$nextTick(function () { 
-            const li_list = document.getElementsByClassName('main_item');
-            const _l = li_list.length;
-            let _arr = [];
-            for(let i=0;i<_l;i++){ 
-                _arr.push(li_list[i].offsetHeight); 
-            };  
-                console.log(_arr);
-            _arr.unshift(0,0);//获取每个.main_item的高（除最后一个元素，增加（0，0）方便后面求和）
-            
-            let _accumulator = [];
-            _arr.reduce(function(s, c) {
-                _accumulator.push(s + c);
-                return s + c;
-            });
-            this.accumulatorArr = _accumulator;//获取每一元素离父级的距离
-
-        }); 
+        
         const _this = this;
         const main = document.querySelector('.main');
         this.mainDom = main;
@@ -70,11 +53,35 @@ export default {
 
     }, 
     methods:{
+        getAccumulator(){ 
+            const li_list = document.getElementsByClassName('main_item');
+            const _l = li_list.length;
+            let _arr = [];
+            for(let i=0;i<_l;i++){ 
+                _arr.push(li_list[i].offsetHeight); 
+            };  
+            _arr.unshift(0,0);//获取每个.main_item的高（除最后一个元素，增加（0，0）方便后面求和）
+            
+            let _accumulator = [];
+            _arr.reduce(function(s, c) {
+                _accumulator.push(s + c);
+                return s + c;
+            });
+            this.accumulatorArr = _accumulator;//获取每一元素离父级的距离          
+        },
         leftBtn(index){
+            if(this.accumulatorKey) {
+                this.accumulatorKey = false;
+                this.getAccumulator();
+            };
             this.active = index;
             this.mainDom.scrollTo(0, this.accumulatorArr[index]);
         },
         scrollFun:_debounce(function(_scrollTop){
+            if(this.accumulatorKey) {
+                this.accumulatorKey = false;
+                this.getAccumulator();
+            };
             const _threshold = 120;//滚动变化的阈值
             const accumulatorArr = this.accumulatorArr; 
             for(let i=0;i<accumulatorArr.length;i++){

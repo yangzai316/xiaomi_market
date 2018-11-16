@@ -24,8 +24,8 @@ export default {
     data(){
         return{
             openEye:false,
-            username:'',
-            password:'',
+            username:'123',
+            password:'123',
             warnTxt:''
         }
     },
