@@ -1,3 +1,0 @@
-// getters
-const getters = {
-}
