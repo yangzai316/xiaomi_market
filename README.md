@@ -5,6 +5,22 @@
 发现问题可Issues本人，会做相应修改，但具体功能截至，不做后续迭代；<br>
 如有借鉴或转发,请表明本文出处即可，否，必追究。<br>
 ## 项目简介
+#### 项目生产环境效果预览
+线上服务是本人买的廉价的，会导致接口数据返回很缓慢...(本地跑的很快，我也很无奈...);<br>
+效果预览图片处理软件生成的图片把背景色处理的很奇怪，原本就是普通的白色，大家凑合看...
+##### 整体
+![整体](https://github.com/yangzaiwangzi/xiaomi_market/blob/master/imgs/all.gif)
+##### 首页
+![首页](https://github.com/yangzaiwangzi/xiaomi_market/blob/master/imgs/index.gif)
+##### 商品详情
+![商品详情](https://github.com/yangzaiwangzi/xiaomi_market/blob/master/imgs/detail.gif)
+##### 分类
+![分类](https://github.com/yangzaiwangzi/xiaomi_market/blob/master/imgs/fenlei.gif)
+##### 购物车
+![购物车](https://github.com/yangzaiwangzi/xiaomi_market/blob/master/imgs/car.gif)
+##### 登陆+个人中心
+![登陆+个人中心](https://github.com/yangzaiwangzi/xiaomi_market/blob/master/imgs/login.gif)
+
 #### 项目启动
 本项目启动，需要后端接口的支持（即上面提到的假数据），所以需要启动两个项目：
 - 后端接口项目：
@@ -194,3 +210,6 @@ import { mapState } from 'vuex';
 不过多介绍项目的代码进行的细节,会抽取部分简介：
 - 引入‘lodash.debounce’进行防抖操作；
 - 引入‘vue-cookies’进行cookie操作；
+#### 10、项目结束
+至此，项目基本结束，有问题可以在上面的Issues我，会做相应的修改；<br>
+觉得还行，给个STAR鼓励一下，谢谢...
